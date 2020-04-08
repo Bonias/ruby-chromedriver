@@ -6,15 +6,12 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV CHROME_VERSION 81.0.4044.92-1
 ENV CHROMEDRIVER_VERSION 81.0.4044.69
 
-# Install dependencies
+# Install usefull packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     # required to install ruby-filemagic gem
     libmagic-dev \
     ghostscript \
- && rm -rf /var/lib/apt/lists/*
-
-# Install xvfb
-RUN apt-get update && apt-get -y --no-install-recommends install xvfb \
+    xvfb \
  && rm -rf /var/lib/apt/lists/*
 
 # Install yarn (this also installs nodejs)
