@@ -33,3 +33,11 @@ RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CH
  && chmod ugo+rx /usr/bin/chromedriver \
  && apt-mark hold google-chrome-stable
 
+# install libjpeg, libssl1.0.0 and libpng12 required to run wkhtmltopdf provided by wkhtmltopdf-binary-edge
+RUN apt-get update && apt-get -y --no-install-recommends install multiarch-support && rm -rf /var/lib/apt/lists/* \
+ && wget -O libjpeg.deb http://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8_1.4.2-0ubuntu3.3_amd64.deb \
+ && dpkg -i libjpeg.deb && rm libjpeg.deb \
+ && wget -O libpng.deb http://security.ubuntu.com/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1.1_amd64.deb \
+ && dpkg -i libpng.deb && rm libpng.deb \
+ && wget -O libssl.deb http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u12_amd64.deb \
+ && dpkg -i libssl.deb && rm libssl.deb
