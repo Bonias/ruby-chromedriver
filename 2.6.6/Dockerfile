@@ -3,8 +3,8 @@ FROM ruby:2.6.6
 MAINTAINER Piotr Boniecki <piotr@prograils.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV CHROME_VERSION 81.0.4044.92-1
-ENV CHROMEDRIVER_VERSION 81.0.4044.69
+ENV CHROME_VERSION 81.0.4044.138-1
+ENV CHROMEDRIVER_VERSION 81.0.4044.138
 
 # Install usefull packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
